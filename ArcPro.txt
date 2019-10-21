@@ -1,0 +1,26 @@
+ArcPro 1.4 (http://pro.arcgis.com/en/pro-app/get-started/install-and-sign-in-to-arcgis-pro.htm)
+
+ArcGIS Pro ( \\Geobase-win\CED\GADS\R2017\R012\10.4.1\ArcGISPro_7198_154024.exe or \\Geobase-win\CED\GADS\R2017\R012\10.4.1\ArcGIS_Pro_14_153980.iso/ArcGISPro_7198_154024.exe & extract to H Drive & go with defaults)
+  Requirements - http://pro.arcgis.com/en/pro-app/get-started/arcgis-pro-system-requirements.htm  
+  Microsoft .NET Framework 4.6.1 or later must be installed prior to installing ArcGIS Pro 1.4.
+   https://www.microsoft.com/en-us/download/details.aspx?id=49982
+    Find version installed - https://msdn.microsoft.com/en-us/library/hh925568(v=vs.110).aspx#net_d (On Windows 10 Anniversary Update: 394802 - .NET Framework 4.6.2)
+  Create Restore Point - https://support.microsoft.com/en-us/instantanswers/e6bbddb0-9db4-4d88-9063-42c52c79a96e/create-a-system-restore-point  
+  DisableMSI - https://msdn.microsoft.com/EN-US/LIBRARY/AA368304(V=VS.85).ASPX
+
+* SDK - ArcObjects
+  Install after Visual Studio Community 2015 (see VisualStudioCommunity.docx)
+  http://stackoverflow.com/questions/35551179/visual-studio-2015-another-installation-in-progress
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Installation-and-Upgrade#install-from-within-visual-studio
+
+ArcGIS Pro SDK for .NET (ArcGISProSDK_7198_154026.exe or ArcGIS_Pro_14_153980.iso/ArcGISProSDK_7198_154026.exe & extract to H Drive & double-click proapp-sdk-templates.vsix and proapp-sdk-utilities.vsix)
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Installation-and-Upgrade#install-from-within-visual-studio (select .NET Framework 4.6.1 first)
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Installation-and-Upgrade
+  https://github.com/Esri/arcgis-pro-sdk/wiki/FAQ
+  https://geonet.esri.com/groups/arcgis-pro-sdk/blog/2017/01/12/whats-new-in-the-arcgis-pro-14-sdk
+
+ProGuide: Build your first add-in
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Build-Your-First-Add-in
+
+Visual Studio:
+https://www.visualstudio.com/en-us/docs/vs/overview

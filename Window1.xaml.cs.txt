@@ -1,0 +1,182 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+//For adding data
+using ArcGIS.Desktop.Framework.Contracts;
+using ArcGIS.Desktop.Framework.Threading.Tasks;
+using ArcGIS.Desktop.Mapping;
+
+
+//Samples - http://www.wpf-tutorial.com/list-controls/listbox-control/ & https://msdn.microsoft.com/en-us/library/cc265158(v=vs.95).aspx
+//ProSnippet - https://github.com/Esri/arcgis-pro-sdk/wiki/ProSnippets-MapAuthoring#create-and-add-a-layer-to-the-active-map
+//API: https://pro.arcgis.com/en/pro-app/sdk/api-reference/index.html#topic11811.html
+
+namespace MapsRUs_AddData
+{
+    /// <summary>
+    /// Interaction logic for Window1.xaml
+    /// </summary>
+    public partial class Window1 : Window
+    {
+        public Window1()
+        {
+            InitializeComponent();
+
+            //Populate the list box (DisplayMemberPath="theLayer")
+            List<AddLayerItem> items = new List<AddLayerItem>();
+            items.Add(new AddLayerItem() { theLayer = "Address Points", theData = "AddressPoints.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1931)", theData = "aerial1931.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1950)", theData = "aerial1950.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1973)", theData = "aerial1973.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1992)", theData = "aerial92.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1996)", theData = "aerial96.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (1998)", theData = "aerial1998_2001.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2002)", theData = "aerial2002.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2005)", theData = "aerial2005.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (PC - 2005)", theData = "aerial2005PC.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2006)", theData = "aerial2006.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2009)", theData = "aerial2009.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2012)", theData = "aerial2012.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (2015)", theData = "aerial2015.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Aerial Photos (ESRI Imagery)", theData = "ESRI_Imagery.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Arterials", theData = "arterials.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Assessor Files", theData = "MDB_" });
+            items.Add(new AddLayerItem() { theLayer = "BIA", theData = "BIA.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Bicycle Network", theData = "BicycleNetwork.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Bing Maps", theData = "BingMaps.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Buildable Lands (2005)", theData = "BuildableLands2005.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census Blocks (1990)", theData = "censusblk90.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census Block Groups (1990)", theData = "censusbg90.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census Tracts (1990)", theData = "censustrt90.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census Tract Boundaries (1990)", theData = "censustbdy90.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2000 - Tacoma City Blocks", theData = "censusblk00city.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2000 - Tacoma UGA Blocks", theData = "censusblk00.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2000 - Tacoma UGA Tracts", theData = "censustrt00.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2000 - Pierce County", theData = "censuspc00.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2000 - Washington State", theData = "censuswa00.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Census 2010", theData = "census2010.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "City Boundary", theData = "citybdy.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Community Map", theData = "CommunityMap.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Contours (1990-2ft)", theData = "contours2.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Contours (1990-10ft)", theData = "contours10.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Contours (2002-2004)", theData = "contours.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Councilmanic Districts", theData = "councilmanic.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Downtown (Working Definition)", theData = "DowntownTacoma.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Empowerment Zone", theData = "empowerment.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Facilities (Capital)", theData = "faccap.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Facilities (Community)", theData = "faccom.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Facilities (Municipal)", theData = "facmuni.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "FAZ", theData = "faz.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Fire Stations", theData = "firestations.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Flood Zone", theData = "FloodZone.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Geodata Dictionary (geodata)", theData = "DBF_//geobase-win/pdsshare/pdsshr1/datadict|geodata.dbf" });
+            items.Add(new AddLayerItem() { theLayer = "Habitat Corridors", theData = "HabitatCorridors.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Habitat Zones", theData = "habitatzones.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Highways", theData = "highways.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Hillshade", theData = "Topography.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Historic Areas", theData = "historic.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "IFSA", theData = "IFSA.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Land Use Designations", theData = "LandUseDesignations.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Land Use Intensity", theData = "intensity.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Light Rail", theData = "lightrail.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Lots & Blocks", theData = "LotsBlocks.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Map Basics", theData = "mapbasics.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Manufacturing / Industrial Center", theData = "mic.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "McChord AFB", theData = "McChordAFB.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Mixed Use Centers", theData = "MUC.lyrx" });
+            items.Add(new AddLayerItem() { theLayer = "Neighborhood Areas", theData = "neighareas.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Neighborhood Blocks", theData = "neighblocks.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Neighborhood Business Districts", theData = "nbd.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Neighborhood Council Districts", theData = "ncd.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Parcels", theData = "parcels.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Parking Downtown", theData = "parking.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Parks (Metro)", theData = "parks.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Pedestrian Street Classes", theData = "PedestrianStreetClasses.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Pierce Transit", theData = "PierceTransit.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Planimetrics (2005)", theData = "Planimetrics2005.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Police Sectors", theData = "PoliceSectors.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Police Sectors, Districts, Blocks", theData = "PoliceSectorsDistrictsBlocks.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Puyallup Land Claims Settlement", theData = "puyalluplc.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Puyallup Tribal Lands", theData = "PuyallupTribalLands.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Steep Slopes", theData = "steepslopes.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Streets (2005 Planimetrics)", theData = "Streets2005.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Street Centerlines", theData = "streetcl.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Street Centerlines (Pierce County)", theData = "streetclpc.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Table Data Dictionary (table)", theData = "DBF_//geobase-win/pdsshare/pdsshr1/datadict|table.dbf" });
+            items.Add(new AddLayerItem() { theLayer = "TAZ (1999)", theData = "taz99.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Trails", theData = "Trails.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Urban Growth Area", theData = "uga.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Wetlands", theData = "wetlands.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Zip Codes", theData = "zipcodes.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Zoning", theData = "zoning.lyr" });
+            items.Add(new AddLayerItem() { theLayer = "Zoning - Standard Colors", theData = "zoningsc.lyr" });
+
+            lbAddLayerList.ItemsSource = items;  //update listBox
+        }
+
+        private async void btnAddItems_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbAddLayerList.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("Nothing selected.");
+                return;
+            }
+
+            foreach (object o in lbAddLayerList.SelectedItems)
+            {
+                //MessageBox.Show((o as AddLayerItem).theData.ToString());
+
+                //START HERE!!
+                //Create and add a layer to the active map
+                /*
+                * string url = @"c:\data\project.gdb\DEM";  //Raster dataset from a FileGeodatabase
+                * string url = @"c:\connections\mySDEConnection.sde\roads";  //FeatureClass of a SDE
+                * string url = @"c:\connections\mySDEConnection.sde\States\roads";  //FeatureClass within a FeatureDataset from a SDE
+                * string url = @"c:\data\roads.shp";  //Shapefile
+                * string url = @"c:\data\imagery.tif";  //Image from a folder
+                * string url = @"c:\data\mySDEConnection.sde\roads";  //.lyrx or .lpkx file
+                * string url = @"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer";  //map service
+                * string url = @"http://sampleserver6.arcgisonline.com/arcgis/rest/services/NapervilleShelters/FeatureServer/0";  //FeatureLayer off a map service or feature service
+                */
+                //string url = @"c:\data\project.gdb\roads";  //FeatureClass of a FileGeodatabase
+                //string url = @"Z:\R2017\R123\data\muc.shp";
+                //string url = @"Z:\R2017\R123\data\MUC.lyrx";
+                //string url = @"\\Geobase-win\CED\GADS\R2017\R123\data\MUC.lyrx";
+                //string url = @"\\Geobase-win\CED\GADS\R2017\R123\data\" + "MUC.lyrx";
+
+                //string url = @"\\Geobase-win\CED\GADS\R2017\R123\data\" + (o as AddLayerItem).theData.ToString();
+                string url = @"\\geobase-win\pdsshare\pdsshr1\mapbases\layerfiles\ArcPro\" + (o as AddLayerItem).theData.ToString();
+
+                Uri uri = new Uri(url);
+                await QueuedTask.Run(() => LayerFactory.Instance.CreateLayer(uri, MapView.Active.Map));  //Map View must be active
+
+                this.Close();  //Clicked Cancel Button - close the window
+            }
+        }
+
+
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();  //Clicked Cancel Button - close the window
+        }
+    }
+
+    public class AddLayerItem
+    {
+        public string theLayer { get; set; }
+        public string theData { get; set; }
+    }
+
+}

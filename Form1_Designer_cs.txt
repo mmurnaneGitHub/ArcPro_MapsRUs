@@ -1,0 +1,240 @@
+using System.Collections;
+
+namespace WindowsFormsApplication2
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Select Layer(s) to Add:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.DisplayMember = "LongName";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(12, 46);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox1.Size = new System.Drawing.Size(219, 186);
+            this.listBox1.TabIndex = 1;
+            this.listBox1.ValueMember = "ShortName";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(242, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(242, 209);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Cancel";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(328, 246);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label1);
+            this.Name = "Form1";
+            this.Text = "Available Layers";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+            //From - https://msdn.microsoft.com/en-us/library/system.windows.forms.listcontrol.datasource(v=vs.110).aspx?cs-save-lang=1&cs-lang=csharp#code-snippet-2
+            // Populate the list box using an array as DataSource.
+            ArrayList addLayers = new ArrayList();
+            addLayers.Add(new addLayer("Address Points", "AddressPoints.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1931)", "aerial1931.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1950)", "aerial1950.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1973)", "aerial1973.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1992)", "aerial92.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1996)", "aerial96.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (1998)", "aerial1998.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2002)", "aerial2002.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2005)", "aerial2005.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (PC - 2005)", "aerial2005PC.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2006)", "aerial2006.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2009)", "aerial2009.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2012)", "aerial2012.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2015)", "aerial2015.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (2015 - pre 10.3.1)", "aerial2015_101.lyr"));
+            addLayers.Add(new addLayer("Aerial Photos (ESRI Imagery)", "ESRI_Imagery.lyr"));
+            addLayers.Add(new addLayer("Arterials", "arterials.lyr"));
+            addLayers.Add(new addLayer("Assessor Files", "MDB_"));
+            addLayers.Add(new addLayer("BIA", "BIA.lyr"));
+            addLayers.Add(new addLayer("Bicycle Network", "BicycleNetwork.lyr"));
+            addLayers.Add(new addLayer("Bing Maps", "BingMaps.lyr"));
+            addLayers.Add(new addLayer("Buildable Lands (2005)", "BuildableLands2005.lyr"));
+            addLayers.Add(new addLayer("Census Blocks (1990)", "censusblk90.lyr"));
+            addLayers.Add(new addLayer("Census Block Groups (1990)", "censusbg90.lyr"));
+            addLayers.Add(new addLayer("Census Tracts (1990)", "censustrt90.lyr"));
+            addLayers.Add(new addLayer("Census Tract Boundaries (1990)", "censustbdy90.lyr"));
+            addLayers.Add(new addLayer("Census 2000 - Tacoma City Blocks", "censusblk00city.lyr"));
+            addLayers.Add(new addLayer("Census 2000 - Tacoma UGA Blocks", "censusblk00.lyr"));
+            addLayers.Add(new addLayer("Census 2000 - Tacoma UGA Tracts", "censustrt00.lyr"));
+            addLayers.Add(new addLayer("Census 2000 - Pierce County", "censuspc00.lyr"));
+            addLayers.Add(new addLayer("Census 2000 - Washington State", "censuswa00.lyr"));
+            addLayers.Add(new addLayer("Census 2010", "census2010.lyr"));
+            addLayers.Add(new addLayer("City Boundary", "citybdy.lyr"));
+            addLayers.Add(new addLayer("Community Map", "CommunityMap.lyr"));
+            addLayers.Add(new addLayer("Contours (2002-2004)", "contours.lyr"));
+            addLayers.Add(new addLayer("Contours (1990-2ft)", "contours2.lyr"));
+            addLayers.Add(new addLayer("Contours (1990-10ft)", "contours10.lyr"));
+            addLayers.Add(new addLayer("Councilmanic Districts", "councilmanic.lyr"));
+            addLayers.Add(new addLayer("Downtown (Working Definition)", "DowntownTacoma.lyr"));
+            addLayers.Add(new addLayer("Empowerment Zone", "empowerment.lyr"));
+            addLayers.Add(new addLayer("Facilities (Capital)", "faccap.lyr"));
+            addLayers.Add(new addLayer("Facilities (Community)", "faccom.lyr"));
+            addLayers.Add(new addLayer("Facilities (Municipal)", "facmuni.lyr"));
+            addLayers.Add(new addLayer("FAZ", "faz.lyr"));
+            addLayers.Add(new addLayer("Fire Stations", "firestations.lyr"));
+            addLayers.Add(new addLayer("Flood Zone", "FloodZone.lyr"));
+            addLayers.Add(new addLayer("Geodata Dictionary (geodata)", "DBF_//geobase-win/pdsshare/pdsshr1/datadict|geodata.dbf"));
+            addLayers.Add(new addLayer("Habitat Corridors", "HabitatCorridors.lyr"));
+            addLayers.Add(new addLayer("Habitat Zones", "habitatzones.lyr"));
+            addLayers.Add(new addLayer("Highways", "highways.lyr"));
+            addLayers.Add(new addLayer("Hillshade", "Topography.lyr"));
+            addLayers.Add(new addLayer("Historic Areas", "historic.lyr"));
+            addLayers.Add(new addLayer("IFSA", "IFSA.lyr"));
+            addLayers.Add(new addLayer("Land Use Designations", "LandUseDesignations.lyr"));
+            addLayers.Add(new addLayer("Land Use Intensity", "intensity.lyr"));
+            addLayers.Add(new addLayer("Light Rail", "lightrail.lyr"));
+            addLayers.Add(new addLayer("Lots & Blocks", "LotsBlocks.lyr"));
+            addLayers.Add(new addLayer("Map Basics", "mapbasics.lyr"));
+            addLayers.Add(new addLayer("Manufacturing / Industrial Center", "mic.lyr"));
+            addLayers.Add(new addLayer("McChord AFB", "McChordAFB.lyr"));
+            addLayers.Add(new addLayer("Mixed Use Centers", "muc.lyr"));
+            addLayers.Add(new addLayer("Neighborhood Areas", "neighareas.lyr"));
+            addLayers.Add(new addLayer("Neighborhood Blocks", "neighblocks.lyr"));
+            addLayers.Add(new addLayer("Neighborhood Business Districts", "nbd.lyr"));
+            addLayers.Add(new addLayer("Neighborhood Council Districts", "ncd.lyr"));
+            addLayers.Add(new addLayer("Parcels", "parcels.lyr"));
+            addLayers.Add(new addLayer("Parking Downtown", "parking.lyr"));
+            addLayers.Add(new addLayer("Parks (Metro)", "parks.lyr"));
+            addLayers.Add(new addLayer("Pedestrian Street Classes", "PedestrianStreetClasses.lyr"));
+            addLayers.Add(new addLayer("Pierce Transit", "PierceTransit.lyr"));
+            addLayers.Add(new addLayer("Planimetrics (2005)", "Planimetrics2005.lyr"));
+            addLayers.Add(new addLayer("Police Sectors", "PoliceSectors.lyr"));
+            addLayers.Add(new addLayer("Police Sectors, Districts, Blocks", "PoliceSectorsDistrictsBlocks.lyr"));
+            addLayers.Add(new addLayer("Puyallup Land Claims Settlement", "puyalluplc.lyr"));
+            addLayers.Add(new addLayer("Puyallup Tribal Lands", "PuyallupTribalLands.lyr"));
+            addLayers.Add(new addLayer("Steep Slopes", "steepslopes.lyr"));
+            addLayers.Add(new addLayer("Streets (2005 Planimetrics)", "Streets2005.lyr"));
+            addLayers.Add(new addLayer("Street Centerlines", "streetcl.lyr"));
+            addLayers.Add(new addLayer("Street Centerlines (Pierce County)", "streetclpc.lyr"));
+            addLayers.Add(new addLayer("Table Data Dictionary (table)", "DBF_//geobase-win/pdsshare/pdsshr1/datadict|table.dbf"));
+            addLayers.Add(new addLayer("TAZ (1999)", "taz99.lyr"));
+            addLayers.Add(new addLayer("Trails", "Trails.lyr"));
+            addLayers.Add(new addLayer("Urban Growth Area", "uga.lyr"));
+            addLayers.Add(new addLayer("Wetlands", "wetlands.lyr"));
+            addLayers.Add(new addLayer("Zip Codes", "zipcodes.lyr"));
+            addLayers.Add(new addLayer("Zoning", "zoning.lyr"));
+            addLayers.Add(new addLayer("Zoning - Standard Colors", "zoningsc.lyr"));
+
+            this.listBox1.DataSource = addLayers;
+
+            // Set the long name as the property to be displayed and the short
+            // name as the value to be returned when a row is selected.  Here
+            // these are properties; if we were binding to a database table or
+            // query these could be column names.
+            this.listBox1.DisplayMember = "LongName";
+            this.listBox1.ValueMember = "ShortName";
+
+            // Ensure the form opens with no rows selected.
+            this.listBox1.ClearSelected();
+
+        }
+
+        //adding to listbox array
+        public class addLayer
+        {
+            private string myShortName;
+            private string myLongName;
+
+            public addLayer(string strLongName, string strShortName)
+            {
+
+                this.myShortName = strShortName;
+                this.myLongName = strLongName;
+            }
+
+            public string ShortName
+            {
+                get
+                {
+                    return myShortName;
+                }
+            }
+
+            public string LongName
+            {
+
+                get
+                {
+                    return myLongName;
+                }
+            }
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+
+    }
+
+
+}
+

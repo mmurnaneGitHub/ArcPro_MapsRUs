@@ -1,0 +1,107 @@
+VS User:
+ mmurnane@cityoftacoma.org (personal)
+ VSC2015+!
+
+----------------------------------------------------------------------------------------------- 
+ArcPro Notes:
+ ArcPro Supported Types
+  https://pro.arcgis.com/en/pro-app/help/projects/supported-data-types-and-items.htm
+
+ Raster catalogs have been deprecated in ArcGIS Pro. You will need to migrate your raster catalog to a mosaic dataset.
+  http://pro.arcgis.com/en/pro-app/get-started/release-notes.htm
+
+ No MS Access (32-bit)
+----------------------------------------------------------------------------------------------- 
+PROCESS:
+  \\Geobase-win\CED\GADS\R2017\R123\Projects\MapsRUs_AddData  (ListBox1)
+
+1. In Visual Studio 2015 create a ArcGIS Pro Module Add-in Visual Studio project with an ESRI button (https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Build-Your-First-Add-in)
+2. Right-click the project title and add a new WPF  (Windows Presentation Foundation is a graphical subsystem by Microsoft for rendering user interfaces in Windows-based applications.)
+3. Add tools to WPF window by dragging from toolbox (View>Toolbox).
+4. Add code to Window1.xaml.cs to from fill ListBox control.  Add click events from xaml (code added to xaml.cs)
+5. In Window1.xaml DisplayMemberPath to show description (hide value name).
+
+Layer Files (*.lyrx): \\geobase-win\pdsshare\pdsshr1\mapbases\layerfiles\ArcPro\
+	Import data from ArcMap and then save as layer file. 
+DBF Files: CreateStandaloneTable (Window1.xaml.cs)
+
+Manage add-ins - http://pro.arcgis.com/en/pro-app/get-started/manage-add-ins.htm
+ A single compressed file (.esriAddInX) in \\Geobase-win\CED\GADS\R2017\R123\Projects\MapsRUs_AddData\MapsRUs_AddData\bin\Debug\
+
+Shared Folder:
+ \\geobase-win\pdsshare\pdsshr1\mapbases\AddIns_ArcPro  
+----------------------------------------------------------------------------------------------- 
+
+TO DO:
+1. Add-In instructions
+2. Remove all messages from VS (console errors)
+----------------------------------------------------------------------------------------------- 
+ArcGIS Pro SDK
+ http://pro.arcgis.com/en/pro-app/sdk/
+
+ArcGIS Pro 2.0 API Reference Guide:
+ https://pro.arcgis.com/en/pro-app/sdk/api-reference/index.html#topic1.html
+
+ArcGIS Pro 2.0 SDK for Microsoft .NET Framework Community Samples:
+ https://github.com/Esri/arcgis-pro-sdk-community-samples
+ Download & extract folder and open *.sln file
+
+ProGuide: Build your first add-in
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Build-Your-First-Add-in
+  Step 6 - Module added to
+           \\Geobase-win\CED\GADS\R2017\R123\Projects\ProAppModule\ProAppModule\bin\Debug
+           C:\Documents\ArcGIS\AddIns\ArcGISPro\ (relative path to C:\my documents - old\ArcGIS\AddIns\ArcGISPro)
+
+ProGuide Combo boxes:
+ https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Combo-boxes 
+
+daml - most code
+xaml - display
+cs - control code
+
+Fill the ComboBox and ListBox controls:
+ https://msdn.microsoft.com/en-us/library/system.windows.forms.listcontrol.datasource(v=vs.110).aspx?cs-save-lang=1&cs-lang=csharp#code-snippet-2
+
+
+----------------------------------------------------------------------------------------------- 
+Getting started (add a message button):
+  https://github.com/Esri/arcgis-pro-sdk#getting-started
+
+ProSnippets:
+  https://github.com/Esri/arcgis-pro-sdk/wiki/ProSnippets
+  Create and add a layer to the active map: https://github.com/Esri/arcgis-pro-sdk/wiki/ProSnippets-MapAuthoring#create-and-add-a-layer-to-the-active-map
+
+Ask ArcGIS Pro:
+  https://geonet.esri.com/community/gis/applications/arcgis-pro
+
+ArcPro For ArcMap users:
+  https://pro.arcgis.com/en/pro-app/get-started/migrate-to-arcgis-pro.htm
+
+1. ProGuide Buttons - https://github.com/Esri/arcgis-pro-sdk/wiki/ProGuide-Buttons
+2. Dialog???
+
+Start ArcGIS Pro Dialog:
+ https://geonet.esri.com/message/681089-start-arcgis-pro-dialog
+
+ 
+This sample provides buttons to change basemap layer and to add new layer to the active map:
+ https://github.com/Esri/arcgis-pro-sdk-community-samples/blob/b35f275dcc80a2b578b6c43f0106c953419b93d3/Map-Authoring/MappingAddIns/ReadMe.md
+
+Living Atlas Sample:
+ https://github.com/Esri/arcgis-pro-sdk-community-samples/tree/20594435a928fc65332affd53513b7e7f039c914/Sharing/LivingAtlasOfTheWorld
+
+List Box Sample (DockpaneSimple):
+ https://github.com/Esri/arcgis-pro-sdk-community-samples/blob/master/Framework/DockpaneSimple/DockpaneSimple%20(C%23).md
+
+CustomSymbolPicker:
+ https://github.com/Esri/arcgis-pro-sdk-community-samples/blob/master/Map-Authoring/CustomSymbolPicker/Gallery_Search_DockpaneViewModel.cs
+
+Pro SDK Channel Videos:
+ https://www.youtube.com/watch?v=aM-0IrfRDi8&list=PLN5okgNxFYJp2eJe6rOeeywQoBCXhQqi7#t=7.117479
+ Video 5 - add-in as zip file
+stopped video @ 8
+
+Dev Summit 2017:
+ http://proceedings.esri.com/library/userconf/devsummit17/index.html
+
+Framework Elements: https://youtu.be/5PgaeZycWXc?t=2300
